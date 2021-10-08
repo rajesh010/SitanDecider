@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SitanDecider">
-        <activity android:name=".SavedDinner"></activity>
+        <activity android:name=".AddNewActivity"></activity>
+        <activity
+            android:name=".ui.login.AddNewActivity"
+            android:label="@string/title_activity_add_new" />
+        <activity android:name=".SavedDinner" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
