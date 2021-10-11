@@ -10,5 +10,7 @@
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="About_me">For any further queries contact me over: Mohan.gautam010@gmail.com</string>
+    <string name="working">Pressing Decide will randomly give one dish out from all the dishes available in the database. First the dishes has to be added manually and then the process shall begin. The dishes can be deleted with the long press on list can be added easily too.
+                            However, it is advisable if you delete too much too often the once in a while to clear the app data and start again.</string>
 </resources>

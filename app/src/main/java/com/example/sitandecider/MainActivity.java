@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,12 +19,14 @@ public class MainActivity extends AppCompatActivity {
     //-- Some variables to be decided here
 
                  //var platz!!!!
-    int maxOfDatabase;
-    String maxNameOfDatabase;
-    int randomNumber;
-   static boolean truenum;
+    public static int maxOfDatabase;
+    public static   String maxNameOfDatabase;
+    public static  int randomNumber;
+    public static boolean truenum;
 
-    String RandomName;
+    int min = 0;
+
+    public static String RandomName;
 
     ArrayList<Integer> includedIDs = new ArrayList<Integer>();
 
@@ -31,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     Button btn_rand, btn_showall;
+
+    ImageButton btn_Help;
+
     TextView tv_decide;
 
     DataBaseHelper dataBaseHelper = new DataBaseHelper(MainActivity.this);
@@ -41,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         btn_rand = findViewById(R.id.btn_rand);
         btn_showall = findViewById(R.id.btn_showall);
+
+        btn_Help = findViewById(R.id.btn_Help);
 
         tv_decide = findViewById(R.id.tv_decide);
 
@@ -56,19 +67,23 @@ public class MainActivity extends AppCompatActivity {
 
                 maxOfDatabase = dataBaseHelper.MaxNum();
 
-                int min = 0;
+
                 randomNumber = (int) Math.floor(Math.random()*(maxOfDatabase-min+1)+min);
+
+                //new lkine //
+                truenum = true;
 
                 rand();
 
-                if (truenum == false) {
+              /*  if (truenum == false) {
                     randomNumber = (int) Math.floor(Math.random() * (maxOfDatabase - min + 1) + min);
                     rand();
                 } else {
+                    randomNumber = (int) Math.floor(Math.random()*(maxOfDatabase-min+1)+min);  //newly added
                     RandomName = dataBaseHelper.maxName(randomNumber);
                     tv_decide.setText(RandomName);
-                }
-
+                } */
+               // Toast.makeText(MainActivity.this, "Random num = " + randomNumber + "and rand name = " + RandomName , Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -79,7 +94,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, SavedDinner.class);
                 startActivity(i);
-                Toast.makeText(MainActivity.this, "Deleted: " + randomNumber + "and rand name " + RandomName , Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        btn_Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, Help_Activity.class);
+                startActivity(i);
 
             }
         });
@@ -90,25 +115,36 @@ public class MainActivity extends AppCompatActivity {
 
     }  //------------------------------------------- end of on Create-----------------------------------
 
-    public void rand(){
+    public void rand() {
 
         includedIDs = dataBaseHelper.onlyInclude();
         Collections.sort(includedIDs);
-        int n = 0 ;
-        try{
-        while (includedIDs.get(n) <= maxOfDatabase) {
-            if (includedIDs.get(n) == randomNumber){
-                RandomName = dataBaseHelper.maxName(randomNumber);
-                truenum = true;
-                break;
-        }else {
-                n++;
-                truenum = false;
-            }
-        } }
-        catch(Exception e) {
-             n = 0;
+        int n = 0;
+
+        while(truenum == true){
+        try {
+            while (includedIDs.get(n) <= maxOfDatabase) {
+                    if (includedIDs.get(n) == randomNumber) {
+                        RandomName = dataBaseHelper.maxName(randomNumber);
+                        tv_decide.setText(RandomName);
+                        truenum = false;
+                        break;
+                    } else {
+                        n++;
+                       // truenum = false;   //gonna try down
+                    }
+                }
+
+
+
+
+
+        } catch (Exception e) {
+            n = 0;
+            randomNumber = (int) Math.floor(Math.random()*(maxOfDatabase-min+1)+min);  //newly added
         }
+
+    }
 
     }
 

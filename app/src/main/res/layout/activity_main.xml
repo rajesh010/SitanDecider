@@ -2,22 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tv_decide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="178dp"
-        android:layout_marginEnd="198dp"
         android:layout_marginBottom="139dp"
         android:fontFamily="sans-serif-black"
         android:text="Press_Decide"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_rand"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
 
@@ -25,9 +27,9 @@
         android:id="@+id/btn_showall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="351dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="61dp"
         android:text="Show all"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,27 +39,38 @@
         android:id="@+id/btn_rand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="193dp"
-        android:layout_marginEnd="199dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="45dp"
         android:text="Decide"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="216dp"
-        android:layout_height="232dp"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="105dp"
+        android:layout_width="284dp"
+        android:layout_height="342dp"
+        android:layout_marginBottom="98dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/tv_decide"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/dinner_plate_foreground" />
+
+    <ImageButton
+        android:id="@+id/btn_Help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="243dp"
+        android:layout_marginBottom="786dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_showall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/dinner_plate_foreground" />
+        app:srcCompat="@drawable/ic_help_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
