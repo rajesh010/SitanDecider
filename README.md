@@ -6,4 +6,4 @@ choices in restaurant. I knew building an app that decides randomly some food is
 I am very young very basic android learner with a great passion towards computer and technology altogether. 
 
 #Enjoy everyone.
-     (Any better ideas/suggestions are always welcomed: Rajesh.gautam010@gmail.com )
+     (Any better ideas/suggestions are always welcomed: rajesh.gautam010@gmail.com )
